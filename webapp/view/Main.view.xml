@@ -1,30 +1,11 @@
-<mvc:View
-	controllerName="pin_test_1.controller.Main"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	core:require="{
-		formatter: 'pin_test_1/model/formatter'
-	}">
-
-	<Page
-		title="{i18n>appTitle}"
-		id="page">
-		<content>
-			<IllustratedMessage
-				title="{i18n>appTitle}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						id="helloButton"
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello" />
-				</additionalContent>
-			</IllustratedMessage>
-		</content>
-	</Page>
-
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="pin_test_1.controller.Main">
+  <App id="app">
+    <Page id="page" title="Main Page">
+      <content>
+        <Button id="btnPress" text="Press Me" press="onPress" />
+        <Input id="inputField" placeholder="Enter text here" />
+        <Text id="displayText" text="" />
+      </content>
+    </Page>
+  </App>
 </mvc:View>

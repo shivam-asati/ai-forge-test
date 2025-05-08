@@ -1,9 +1,1 @@
-sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController, MessageBox) {
-	"use strict";
-
-	return BaseController.extend("pin_test_1.controller.Main", {
-		sayHello: function () {
-			MessageBox.show("Hello World!");
-		}
-	});
-});
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model//JSONModel", "sap/m/MessageToast"], function(Controller, JSONModel, MessageToast) { "use strict"; return Controller.extend("pin_test_1.controller.Main", { onInit: function() { var oData = { inputText: "", displayText: "" }; var oModel = new JSONModel(oData); this.getView().setModel(oModel); }, onPress: function() { try { var oModel = this.getView().getModel(); var sInputText = oModel.getProperty("/inputText"); if (sInputText) { oModel.setProperty("/displayText", sInputText); MessageToast.show("Text updated successfully!"); } else { MessageToast.show("Please enter some text."); } } catch (oError) { MessageToast.show("An error occurred: " + oError.message); } } }); });
